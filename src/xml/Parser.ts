@@ -208,13 +208,15 @@ export class Parser {
 
 			state = state.parent;
 
-			if(member.proxy) {
-				if(item) state.item[member.safeName] = item;
-				item = state.item;
+            if(member) {
+                if(member.proxy) {
+                    if(item) state.item[member.safeName] = item;
+                    item = state.item;
 
-				state = state.parent;
-				member = member.proxy;
-			}
+                    state = state.parent;
+                    member = member.proxy;
+                }
+            } else console.warn(`Unrecognized element: ${name}`);
 
 			if(item) {
 				var parent = state.item;
