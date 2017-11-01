@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var TypeSpec_1 = require("./TypeSpec");
 var MemberBase_1 = require("./MemberBase");
 var Item_1 = require("./Item");
+var debug = require("debug");
 /** Represents a child element or attribute. */
 var MemberSpec = (function (_super) {
     __extends(MemberSpec, _super);
@@ -40,7 +41,8 @@ var MemberSpec = (function (_super) {
             // TODO: What now? Make sure this is not reached.
             // Different types shouldn't be joined with | in .d.ts, instead
             // they should be converted to { TypeA: TypeA, TypeB: TypeB... }
-            console.log(spec);
+            // Let's not pollute the log too much.
+            debug('cxml')(spec);
         }
         return _this;
     }

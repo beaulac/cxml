@@ -7,6 +7,7 @@ import {TypeSpec, parseName} from './TypeSpec';
 import {MemberBase} from './MemberBase';
 import {MemberRef} from './MemberRef';
 import {ItemBase} from './Item';
+import debug = require('debug');
 
 /** Tuple: name, type ID list, flags, substituted member ID */
 export type RawMemberSpec = [ string, number[], number, number ];
@@ -40,7 +41,8 @@ export class MemberSpec extends MemberBase<MemberSpec, Namespace, ItemBase<Membe
 			// Different types shouldn't be joined with | in .d.ts, instead
 			// they should be converted to { TypeA: TypeA, TypeB: TypeB... }
 
-			console.log(spec);
+			// Let's not pollute the log too much.
+			debug('cxml')(spec);
 		}
 	}
 
